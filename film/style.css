@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 27px;
+}
+
+.container {
+  flex-direction: column;
+}
+
+.container #trunk {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
+  flex-direction: row;
+}
+
+.container #trunk section {
+  display: flex;
+  flex-direction: column;
+}
+
+.container #trunk img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+.container .search {
+  position: relative;
+  left: 130px;
+}
+
+.container .search * {
+  border-radius: 5px;
+}
+
+button {
+  border: none;
+  outline: none;
+  padding: 10px;
+  color: white;
+  background-color: rgb(66, 103, 178);
+  border-radius: 10px;
+}
+
+#filters {
+  border: none;
+  outline: none;
+  padding: 10px;
+  color: white;
+  background-color: rgb(66, 103, 178);
+  border-radius: 10px;
+}
+
+input {
+  padding: 10px;
+}
+
+#logo {
+  position: absolute;
+  width: 80px;
+}

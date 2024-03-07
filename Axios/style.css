@@ -1,0 +1,10 @@
+.container {
+  margin: 0px 20% 0px 20%;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 25px;
+}
+
+.container div {
+  width: 100px;
+}
