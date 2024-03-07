@@ -37,8 +37,20 @@ startBtn.addEventListener("click", () => {
           bool = false;
         });
       } else {
-        if (filter.value == data.Search.Type) {
-        }
+        data.Search.forEach((item) => {
+          if (filter.value == item.Type) {
+            post = `   
+     
+            <img src="${item.Poster}" alt="" />
+            <span>${item.Title}</span>
+            <span>${item.Year}</span>
+            <button>Ajouter</button>
+        `;
+            let section = document.createElement("section");
+            section.innerHTML = post;
+            trunk.appendChild(section);
+          }
+        });
       }
     });
 });
