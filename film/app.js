@@ -23,19 +23,10 @@ startBtn.addEventListener("click", () => {
         console.log("input value : ", input.value, " ; url :", urlS, "; data : ", data);
         trunk.textContent = "";
         data.Search.forEach((element) => {
-          post = `   
-     
-      <img src="${element.Poster}" alt="" />
-      <span>${element.Title}</span>
-      <span>${element.Year}</span>
-      <button>Ajouter</button>
-  `;
-          let section = document.createElement("section");
-          section.innerHTML = post;
-          trunk.appendChild(section);
-          bool = false;
+          appearsForFilter(trunk, element);
         });
       } else {
+        trunk.textContent = "";
         data.Search.forEach((item) => {
           if (filter.value == item.Type) {
             appearsForFilter(trunk, item);
@@ -48,8 +39,6 @@ startBtn.addEventListener("click", () => {
 /*------------------------------------------*/
 
 function appearsForFilter(bloc, it) {
-  bloc.textContent = "";
-
   let view = `   
 
   <img src="${it.Poster}" alt="" />
