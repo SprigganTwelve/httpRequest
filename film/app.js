@@ -36,6 +36,9 @@ startBtn.addEventListener("click", () => {
           trunk.appendChild(section);
           bool = false;
         });
+      } else {
+        if (filter.value == data.Search.Type) {
+        }
       }
     });
 });
