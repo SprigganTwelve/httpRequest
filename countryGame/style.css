@@ -1,0 +1,19 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-size: xx-large;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 14px;
+}
+button {
+  border: none;
+  outline: none;
+  padding: 5px;
+  color: white;
+  background-color: red;
+}
