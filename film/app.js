@@ -4,7 +4,7 @@ var key = "e6701201";
 var trunk = document.querySelector("#trunk");
 var filter = document.querySelector("select");
 var bool = true;
-var post;
+let urlOne = "https://www.omdbapi.com/?apikey=" + key + "&s=movie";
 
 // fetch(urlOne)
 //   .then((promise) => {
@@ -20,11 +20,25 @@ startBtn.addEventListener("click", () => {
     })
     .then((data) => {
       if (filter.value == "" && bool) {
-        appearsForFilter(trunk, post, item);
+        console.log("input value : ", input.value, " ; url :", urlS, "; data : ", data);
+        trunk.textContent = "";
+        data.Search.forEach((element) => {
+          post = `   
+     
+      <img src="${element.Poster}" alt="" />
+      <span>${element.Title}</span>
+      <span>${element.Year}</span>
+      <button>Ajouter</button>
+  `;
+          let section = document.createElement("section");
+          section.innerHTML = post;
+          trunk.appendChild(section);
+          bool = false;
+        });
       } else {
         data.Search.forEach((item) => {
           if (filter.value == item.Type) {
-            appearsForFilter(trunk, post, item);
+            appearsForFilter(trunk, item);
           }
         });
       }
@@ -33,17 +47,17 @@ startBtn.addEventListener("click", () => {
 
 /*------------------------------------------*/
 
-function appearsForFilter(trunk, post, item) {
-  trunk.textContent = "";
+function appearsForFilter(bloc, it) {
+  bloc.textContent = "";
 
-  post = `   
+  let view = `   
 
-  <img src="${item.Poster}" alt="" />
-  <span>${item.Title}</span>
-  <span>${item.Year}</span>
+  <img src="${it.Poster}" alt="" />
+  <span>${it.Title}</span>
+  <span>${it.Year}</span>
   <button>Ajouter</button>
 `;
   let section = document.createElement("section");
-  section.innerHTML = post;
-  trunk.appendChild(section);
+  section.innerHTML = view;
+  bloc.appendChild(section);
 }
