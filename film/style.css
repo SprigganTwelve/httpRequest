@@ -21,6 +21,7 @@
 .container #trunk section {
   display: flex;
   flex-direction: column;
+  overflow-wrap: break-word;
 }
 
 .container #trunk img {
@@ -49,6 +50,7 @@ button {
   color: white;
   background-color: rgb(66, 103, 178);
   border-radius: 10px;
+  width: 200px;
 }
 
 #filters {
