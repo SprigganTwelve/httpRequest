@@ -9,6 +9,7 @@
   align-items: center;
   height: 100vh;
   gap: 14px;
+  flex-direction: column;
 }
 button {
   border: none;
@@ -16,4 +17,11 @@ button {
   padding: 5px;
   color: white;
   background-color: red;
+}
+.container ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
