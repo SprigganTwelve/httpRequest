@@ -18,7 +18,7 @@ skip.addEventListener("click", () => {
 
 go.addEventListener("click", () => {
   result.innerHTML = "";
-  result.textContent = correction(inf, field.value, win, lose);
+  result.textContent = correction(inf, field.value);
 });
 
 field.addEventListener("keydown", (e) => {
@@ -29,7 +29,7 @@ field.addEventListener("keydown", (e) => {
 });
 
 score.addEventListener("click", () => {
-  alert(`Votre Score actuel est : \n Win :${win} ; Lose : ${lose} `);
+  // alert(`Votre Score actuel est : \n Win :${win} ; Lose : ${lose} `);
 });
 
 /*------------function-----------*/
@@ -56,39 +56,10 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
-function correction(answer, value, item, win, lose) {
-  item.textContent = "";
-  if (answer == value.capital) {
-    let succes = document.createElement("div");
-    score += 1;
-    succes.innerHTML = `          <div id="succes" >
-    <span>vous avez  gagner !</span>
-    <button>Follow
-    </button>
-    <p>${win} ${lose}</p>
-  </div>
->`;
-    item.appendChild(succes);
-  } else {
-    let lose = document.createElement("div");
-    score += 1;
-    succes.innerHTML = `<div id="succes" >
-    <span>vous avez  perdu !</span>
-    <button>Follow
-    </button>
-    <p> Win : ${win}  lose : ${lose}</p>
-  </div>
->`;
-    item.appendChild(lose);
-  }
-}
-
-function correction(inf, val, win, lose) {
+function correction(inf, val) {
   if (inf.capital.trim().toLowerCase() === val.trim().toLowerCase()) {
-    win++;
     return "You Win";
   } else {
-    lose--;
     return "You lose";
   }
 }
