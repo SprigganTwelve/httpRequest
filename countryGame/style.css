@@ -25,3 +25,20 @@ button {
   justify-content: center;
   align-items: center;
 }
+.output {
+  position: relative;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.output .result {
+  margin: 12px;
+}
+
+.output .forBtn {
+  position: fixed;
+  right: 2px;
+  bottom: 2px;
+}
