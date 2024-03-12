@@ -3,12 +3,12 @@
   font-size: xx-large;
   border-radius: 50%;
   padding: 5px;
+  cursor: pointer;
 }
 
 #fav {
   position: absolute;
   right: 50px;
-  cursor: pointer;
 }
 
 header {
@@ -70,8 +70,12 @@ header strong {
 }
 
 .back {
+  border-radius: 0;
   position: absolute;
-  height: 90px;
   left: 7px;
   top: 7px;
+  background-color: black;
+  color: white;
+  font-size: xx-large;
+  padding: 10px;
 }

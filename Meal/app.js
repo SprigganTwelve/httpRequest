@@ -2,6 +2,11 @@ var field = document.querySelector("input");
 var search = document.querySelector("#searchIcon");
 var container = document.querySelector(".container");
 var tab = [];
+let next = document.querySelector(".next");
+
+next.addEventListener("click", () => {
+  window.location.replace("favorite/index.html");
+});
 
 search.addEventListener("click", () => {
   container.innerHTML = "";
