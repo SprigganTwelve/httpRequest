@@ -27,3 +27,19 @@ favTab.forEach((element) => {
       container.appendChild(div);
     });
 });
+
+container.addEventListener("click", (e) => {
+  var target = e.target;
+  console.log(target.parentElement.childNodes[4]);
+  console.log(e);
+  if (target.classList[1] == "great") {
+    target.classList.toggle("yellow");
+    tab.unshift(target.parentElement.childNodes[4].textContent);
+    console.log(tab);
+    localStorage.setItem("favoris", JSON.stringify(tab));
+  }
+});
+
+// .catch((error) => {
+//   alert("une erreur est survenu ! : ", error);
+// }); www.themealdb.com/api/json/v1/1/lookup.php?i=52772
