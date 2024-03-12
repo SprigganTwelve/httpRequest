@@ -2,13 +2,9 @@ var back = document.querySelector(".back");
 var container = document.querySelector(".container");
 var descrpContent;
 
-back.addEventListener("click", () => {
-  window.location.replace("../index.html");
-});
-
 var meal = localStorage.getItem("meal");
 var mealKey = JSON.parse(meal);
-const url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + mealKey;
+const url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + mealKey[0];
 
 fetch(url)
   .then((resp) => resp.json())
@@ -30,6 +26,14 @@ fetch(url)
     container.appendChild(first);
     container.appendChild(descrpContent);
   });
+
+back.addEventListener("click", () => {
+  if (mealKey[1] == "home") {
+    window.location.replace("../index.html");
+  } else if (mealKey) {
+    window.location.replace("../favorite/index.html");
+  }
+});
 
 // container.addEventListener("click", (e) => {
 //   var target = e.target;

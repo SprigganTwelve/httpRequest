@@ -47,7 +47,7 @@ search.addEventListener("click", () => {
       }
     } else if (target.parentElement.tagName == "DIV") {
       id = target.parentElement.childNodes[3].childNodes[4].textContent;
-      localStorage.setItem("meal", JSON.stringify(id));
+      localStorage.setItem("meal", JSON.stringify([id, "home"]));
       window.location.replace("./single/index.html");
     }
   });
