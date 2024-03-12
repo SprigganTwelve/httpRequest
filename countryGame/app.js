@@ -3,14 +3,15 @@ var field = document.querySelector("input");
 var result = document.querySelector(".output");
 const url = "https://countryapi.io/api/all?apikey=j9Mm0tn3jdruyqIHOi7MWd6Xn90CHY6BUeKsR4Vq";
 var ul = document.querySelector("ul");
-var win = 0;
-var lose = 0;
+var win;
+var lose;
+var inf;
 
 var value = ouptut(url);
-console.log(value);
+
 field.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
-    correction();
+    result.textContent = correction(inf, field.value, win, lose);
   }
 });
 
@@ -24,11 +25,14 @@ function ouptut(url) {
       var randomCountry = getRandomInt(length);
       let objectSelected = Object.keys(data)[randomCountry];
       let value = data[objectSelected];
+      inf = value;
       ul.children[0].setAttribute("src", `${value.flag.medium}`);
       ul.children[1].textContent = value.name;
       ul.children[2].textContent = "Quel est la Capitale de ce pays ?";
     });
 }
+
+/*------------function-----------*/
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
@@ -58,5 +62,15 @@ function correction(answer, value, item, win, lose) {
   </div>
 >`;
     item.appendChild(lose);
+  }
+}
+
+function correction(inf, val, win, lose) {
+  if (inf.capital == val) {
+    win++;
+    return "You Win";
+  } else {
+    lose--;
+    return "You lose";
   }
 }
