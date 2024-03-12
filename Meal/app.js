@@ -39,9 +39,10 @@ search.addEventListener("click", () => {
     console.log(e);
     if (target.classList[1] == "great") {
       target.classList.toggle("yellow");
-      tab.unshift(target.parentElement.childNodes[4].textContent);
-      console.log(tab);
-      localStorage.setItem("favoris", JSON.stringify(tab));
+      if (tab.indexOf(target.parentElement.childNodes[4].textContent) == -1) {
+        tab.unshift(target.parentElement.childNodes[4].textContent);
+        localStorage.setItem("favoris", JSON.stringify(tab));
+      }
     }
   });
 

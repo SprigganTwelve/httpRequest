@@ -34,9 +34,10 @@ container.addEventListener("click", (e) => {
   console.log(e);
   if (target.classList[1] == "great") {
     target.classList.toggle("yellow");
-    tab.unshift(target.parentElement.childNodes[4].textContent);
-    console.log(tab);
-    localStorage.setItem("favoris", JSON.stringify(tab));
+    target.parentElement.parentElement.remove();
+    let index = favTab.indexOf(target.parentElement.childNodes[4].textContent);
+    favTab.splice(index, 1);
+    localStorage.setItem("favoris", JSON.stringify(favTab));
   }
 });
 
