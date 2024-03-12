@@ -95,7 +95,7 @@ header strong {
 }
 
 .clear {
-  position: absolute;
+  position: fixed;
   right: 10px;
   bottom: 10px;
   font-size: 27px;
