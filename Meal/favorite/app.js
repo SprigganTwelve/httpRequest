@@ -1,6 +1,6 @@
 var container = document.querySelector(".container");
 var favoris = localStorage.getItem("favoris");
-favTab = JSON.parse(favoris);
+var favTab = JSON.parse(favoris);
 
 favTab.forEach((element) => {
   const url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + element;
