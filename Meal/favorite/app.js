@@ -2,6 +2,7 @@ var container = document.querySelector(".container");
 var favoris = localStorage.getItem("favoris");
 var favTab = JSON.parse(favoris);
 var back = document.querySelector(".back");
+var clear = document.querySelector(".clear");
 
 back.addEventListener("click", () => {
   window.location.replace("../index.html");
@@ -38,7 +39,16 @@ container.addEventListener("click", (e) => {
     let index = favTab.indexOf(target.parentElement.childNodes[4].textContent);
     favTab.splice(index, 1);
     localStorage.setItem("favoris", JSON.stringify(favTab));
+  } else if (target.parentElement.tagName == "DIV") {
+    id = target.parentElement.childNodes[3].childNodes[4].textContent;
+    localStorage.setItem("meal", JSON.stringify(id));
+    window.location.replace("../single/index.html");
   }
+});
+
+clear.addEventListener("click", () => {
+  container.innerHTML = "";
+  localStorage.clear();
 });
 
 // .catch((error) => {

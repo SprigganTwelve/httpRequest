@@ -48,13 +48,27 @@ header input {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  cursor: pointer;
+  font-size: 20px;
+  word-break: break-word;
+}
+
+.container div:hover {
+  font-size: 27px;
+  font-weight: bold;
 }
 
 .container div img {
+  transition: all 0.7s;
   height: 400px;
+  width: 400px;
   border-radius: 10px;
   object-fit: cover;
   object-position: center;
+}
+
+.container div img:hover {
+  height: 430px;
 }
 
 .yellow {
@@ -78,4 +92,17 @@ header strong {
   color: white;
   font-size: xx-large;
   padding: 10px;
+}
+
+.clear {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 27px;
+  padding: 7px;
+  border: none;
+  border-radius: 10px;
+  background-color: red;
+  color: white;
+  cursor: pointer;
 }

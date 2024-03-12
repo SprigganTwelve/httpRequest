@@ -3,6 +3,7 @@ var search = document.querySelector("#searchIcon");
 var container = document.querySelector(".container");
 var tab = [];
 let next = document.querySelector(".next");
+var id;
 
 next.addEventListener("click", () => {
   window.location.replace("favorite/index.html");
@@ -18,8 +19,8 @@ search.addEventListener("click", () => {
       console.log(promise);
       promise.meals.forEach((meal) => {
         let post = `
-        <div title="Click on me">
-                <img src="${meal.strMealThumb}" alt="" />
+        <div >
+                <img title="Click on me" src="${meal.strMealThumb}" alt="" />
                <p> <strong>${meal.strMeal}</strong>
                <span class="material-symbols-outlined great" id="fav">
                grade
@@ -35,14 +36,19 @@ search.addEventListener("click", () => {
 
   container.addEventListener("click", (e) => {
     var target = e.target;
-    console.log(target.parentElement.childNodes[4]);
     console.log(e);
     if (target.classList[1] == "great") {
       target.classList.toggle("yellow");
-      if (tab.indexOf(target.parentElement.childNodes[4].textContent) == -1) {
-        tab.unshift(target.parentElement.childNodes[4].textContent);
+      id = target.parentElement.childNodes[4].textContent;
+
+      if (tab.indexOf(id) == -1) {
+        tab.unshift(id);
         localStorage.setItem("favoris", JSON.stringify(tab));
       }
+    } else if (target.parentElement.tagName == "DIV") {
+      id = target.parentElement.childNodes[3].childNodes[4].textContent;
+      localStorage.setItem("meal", JSON.stringify(id));
+      window.location.replace("./single/index.html");
     }
   });
 
